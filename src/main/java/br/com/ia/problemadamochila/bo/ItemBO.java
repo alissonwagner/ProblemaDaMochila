@@ -2,6 +2,7 @@ package br.com.ia.problemadamochila.bo;
 
 import br.com.ia.problemadamochila.enums.DefaultsEnum;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class ItemBO {
@@ -11,8 +12,10 @@ public class ItemBO {
 
     public ItemBO() {
         Random rand = new Random();
-        this.valor = new BigDecimal(rand.doubles(DefaultsEnum.ITEM_VALOR_MIN.getValor(), DefaultsEnum.ITEM_VALOR_MAX.getValor()).iterator().next());
-        this.peso = new BigDecimal(rand.doubles(DefaultsEnum.ITEM_PESO_MIN.getValor(), DefaultsEnum.ITEM_PESO_MAX.getValor()).iterator().next());
+        this.valor = new BigDecimal(rand.doubles(DefaultsEnum.ITEM_VALOR_MIN.getValor(), DefaultsEnum.ITEM_VALOR_MAX.getValor()).iterator().next())
+                .setScale(2, RoundingMode.HALF_UP);
+        this.peso = new BigDecimal(rand.doubles(DefaultsEnum.ITEM_PESO_MIN.getValor(), DefaultsEnum.ITEM_PESO_MAX.getValor()).iterator().next())
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
     public ItemBO(BigDecimal valor, BigDecimal peso) {

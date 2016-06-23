@@ -11,8 +11,8 @@ public class HomeController {
     
     @RequestMapping(path = "/", method = RequestMethod.GET)
     private String getIndex(HttpServletRequest request){
-        request.setAttribute("nome", "Alisson");
         ItemBO item = new ItemBO();
+        request.setAttribute("item", item);
         return "index";
     }
 }

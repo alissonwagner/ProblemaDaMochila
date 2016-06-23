@@ -6,6 +6,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello ${nome}!</h1>
+        <h1>Problema da mochila</h1>
+    <li>Valor: ${item.valor}</li>
+    <li>Peso: ${item.peso}</li>
     </body>
 </html>
