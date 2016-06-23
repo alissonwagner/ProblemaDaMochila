@@ -1,10 +1,16 @@
 package br.com.ia.problemadamochila.enums;
 
 public enum DefaultsEnum {
-	ITEM_PESO_MAX("5"),
-	ITEM_PESO_MIN("0.5"),
+        POPULACAO("500"),
+        ITERACOES("5000"),
+        INTERVALO_GERACAO("50"),
+	ITEM_PESO_MAX("3"),
+	ITEM_PESO_MIN("0.1"),
 	ITEM_VALOR_MIN("1"),
-	ITEM_VALOR_MAX("10");
+	ITEM_VALOR_MAX("100"),
+        MOCHILA_PESO_MAX("10"),
+        MOCHILA_VALOR_MAX("1500"),
+        MOCHILA_TAXA_ACEIT("90");
 	
 	private final Double valor;
 
