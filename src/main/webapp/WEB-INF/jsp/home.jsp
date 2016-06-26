@@ -10,8 +10,20 @@
         <title>Problema da mochila</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+        <link href="/ProblemaDaMochila/resources/css/bootstrap.css" rel="stylesheet">
+        <link href="/ProblemaDaMochila/resources/css/dashboard.css" rel="stylesheet">
+
+        <style type="text/css">
+            .form-group{
+                padding: 10px;
+            }
+            
+            .mochila {
+                width: 400px;
+                height: 400px;
+            }
+        </style>
+
     </head>
 
     <body>
@@ -25,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Algoritmo genético - Problema da mochila</a>
+                    <a class="navbar-brand" href="/">Algoritmos genéticos</a>
                 </div>
             </div>
         </nav>
@@ -53,7 +65,7 @@
                                 <input type="number" class="form-control" id="txMutacao" placeholder="Taxa de mutação (%)" value="${txMutacao}"/>
                             </li>
                         </ul>
-                        <ul class="nav nav-sidebar">
+                        <ul class="nav nav-sidebar form-group">
                             <li>
                                 <h4>Mochila</h4>
                             </li>
@@ -70,7 +82,7 @@
                                 <input type="number" class="form-control" id="pesoMaxMochila" placeholder="Peso Máximo" value="${pesoMaxMochila}"/>
                             </li>
                         </ul>
-                        <ul class="nav nav-sidebar">
+                        <ul class="nav nav-sidebar form-group">
                             <li>
                                 <h4>Objetos</h4>
                             </li>
@@ -91,32 +103,18 @@
                                 <input type="number" class="form-control" id="vlMinObj" placeholder="Valor mínimo" value="${vlMinObj}"/>
                             </li>
                         </ul>
+                        <ul class="nav nav-sidebar form-group">
+                            <li>
+                                <button type="button" class="btn btn-success btn-lg btn-block">Start!</button>
+                            </li>
+                        </ul>
                     </div>
                 </form>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Problema da mochila</h1>
 
                     <div class="row placeholders">
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
+                        <img src="/ProblemaDaMochila/resources/images/mochila.png" class="mochila"/>
                     </div>
 
                     <h2 class="sub-header">Section title</h2>
@@ -253,13 +251,7 @@
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
-        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-        <script src="../../assets/js/vendor/holder.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="/ProblemaDaMochila/resources/js/jquery.min.js"></script>
+        <script src="/ProblemaDaMochila/resources/js/bootstrap.js"></script>
     </body>
 </html>
