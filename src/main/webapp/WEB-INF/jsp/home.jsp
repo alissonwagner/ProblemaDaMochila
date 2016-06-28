@@ -1,3 +1,6 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,25 +47,26 @@
 
         <div class="container-fluid">
             <div class="row">
-                <form>
+                <spring:url var="urlForm" value="/busca"/>
+                <form:form action="${urlForm}" method="POST" modelAttribute="form">
                     <div class="col-sm-3 col-md-2 sidebar">
                         <ul class="nav nav-sidebar form-group">
                             <h4>Geral</h4>
                             <li>
                                 <label for="populacao">População</label>
-                                <input type="number" class="form-control" id="populacao" placeholder="População" value="${populacao}"/>
+                                <form:input type="number" path="populacao" class="form-control" id="populacao" placeholder="População"/>
                             </li>
                             <li>
                                 <label for="iteracoes">Iterações</label>
-                                <input type="number" class="form-control" id="iteracoes" placeholder="Iterações" value="${iteracoes}"/>
+                                <form:input type="number" path="iteracoes" class="form-control" id="iteracoes" placeholder="Iterações"/>
                             </li>
                             <li>
                                 <label for="intGer">Int. de geração</label>
-                                <input type="number" class="form-control" id="intGer" placeholder="Intervalo de geração" value="${intGer}"/>
+                                <form:input type="number" path="intGer" class="form-control" id="intGer" placeholder="Intervalo de geração"/>
                             </li>
                             <li>
                                 <label for="txMutacao">Tx. de mutação (%)</label>
-                                <input type="number" class="form-control" id="txMutacao" placeholder="Taxa de mutação (%)" value="${txMutacao}"/>
+                                <form:input type="number" path="txMutacao" class="form-control" id="txMutacao" placeholder="Taxa de mutação (%)"/>
                             </li>
                         </ul>
                         <ul class="nav nav-sidebar form-group">
@@ -71,15 +75,15 @@
                             </li>
                             <li>
                                 <label for="txAceitacao">Tx. de aceitação (%)</label>
-                                <input type="number" class="form-control" id="txAceitacao" placeholder="Taxa de aceitação (%)" value="${txAceitacao}"/>
+                                <form:input type="number" path="txAceitacao" class="form-control" id="txAceitacao" placeholder="Taxa de aceitação (%)"/>
                             </li>
                             <li>
                                 <label for="vlIdeal">Valor ideal</label>
-                                <input type="number" class="form-control" id="vlIdeal" placeholder="Valor ideal" value="${vlIdeal}"/>
+                                <form:input type="number" path="vlIdeal" class="form-control" id="vlIdeal" placeholder="Valor ideal"/>
                             </li>
                             <li>
                                 <label for="pesoMaxMochila">Peso máximo</label>
-                                <input type="number" class="form-control" id="pesoMaxMochila" placeholder="Peso Máximo" value="${pesoMaxMochila}"/>
+                                <form:input type="number" path="pesoMaxMochila" class="form-control" id="pesoMaxMochila" placeholder="Peso Máximo"/>
                             </li>
                         </ul>
                         <ul class="nav nav-sidebar form-group">
@@ -88,28 +92,28 @@
                             </li>
                             <li>
                                 <label for="pesoMaxObj">Peso máximo</label>
-                                <input type="number" class="form-control" id="pesoMaxObj" placeholder="Peso máximo" value="${pesoMaxObj}"/>
+                                <form:input type="number" path="pesoMaxObj" class="form-control" id="pesoMaxObj" placeholder="Peso máximo"/>
                             </li>
                             <li>
                                 <label for="pesoMinObj">Peso mínimo</label>
-                                <input type="number" class="form-control" id="pesoMinObj" placeholder="Peso mínimo" value="${pesoMinObj}"/>
+                                <form:input type="number" path="pesoMinObj" class="form-control" id="pesoMinObj" placeholder="Peso mínimo"/>
                             </li>
                             <li>
                                 <label for="vlMaxObj">Valor máximo</label>
-                                <input type="number" class="form-control" id="vlMaxObj" placeholder="Valor máximo" value="${vlMaxObj}"/>
+                                <form:input type="number" path="vlMaxObj" class="form-control" id="vlMaxObj" placeholder="Valor máximo"/>
                             </li>
                             <li>
                                 <label for="vlMinObj">Valor mínimo</label>
-                                <input type="number" class="form-control" id="vlMinObj" placeholder="Valor mínimo" value="${vlMinObj}"/>
+                                <form:input type="number" path="vlMinObj" class="form-control" id="vlMinObj" placeholder="Valor mínimo"/>
                             </li>
                         </ul>
                         <ul class="nav nav-sidebar form-group">
                             <li>
-                                <button type="button" class="btn btn-success btn-lg btn-block">Start!</button>
+                                <form:button type="submit" class="btn btn-success btn-lg btn-block">Start!</form:button>>
                             </li>
                         </ul>
                     </div>
-                </form>
+                </form:form>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <h1 class="page-header">Problema da mochila</h1>
 

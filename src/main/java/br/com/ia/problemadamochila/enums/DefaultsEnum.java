@@ -13,13 +13,13 @@ public enum DefaultsEnum {
         MOCHILA_VALOR_IDEAL("1500"),
         MOCHILA_TAXA_ACEIT("90");
 	
-	private final Double valor;
+	private final String valor;
 
 	private DefaultsEnum(String valor) {
-		this.valor = Double.parseDouble(valor);
+		this.valor = valor;
 	}
 
-	public Double getValor() {
+	public String getValor() {
 		return valor;
 	}
 }
