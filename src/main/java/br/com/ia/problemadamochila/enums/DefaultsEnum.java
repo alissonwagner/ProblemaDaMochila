@@ -5,11 +5,12 @@ public enum DefaultsEnum {
         POPULACAO("500"),
         ITERACOES("5000"),
         INTERVALO_GERACAO("150"),
-	ITEM_PESO_MAX("3"),
+	ITEM_PESO_MAX("2"),
 	ITEM_PESO_MIN("0.1"),
 	ITEM_VALOR_MIN("1"),
 	ITEM_VALOR_MAX("100"),
-        MOCHILA_PESO_MAX("10"),
+        ITENS_MOCHILA("15"),
+        MOCHILA_PESO_MAX("15"),
         MOCHILA_VALOR_IDEAL("1500"),
         MOCHILA_TAXA_ACEIT("90");
 	

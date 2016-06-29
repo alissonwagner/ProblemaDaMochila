@@ -11,11 +11,12 @@ public class ParametrosForm {
     private Integer txMutacao;
     private Integer txAceitacao;
     private Integer vlIdeal;
-    private Integer pesoMaxMochila;
+    private Integer itensMochila;
+    private BigDecimal pesoMaxMochila;
     private BigDecimal pesoMaxObj;
     private BigDecimal pesoMinObj;
-    private Integer vlMaxObj;
-    private Integer vlMinObj;
+    private BigDecimal vlMaxObj;
+    private BigDecimal vlMinObj;
 
     public ParametrosForm() {
         populacao = Integer.parseInt(DefaultsEnum.POPULACAO.getValor());
@@ -24,11 +25,12 @@ public class ParametrosForm {
         txMutacao = Integer.parseInt(DefaultsEnum.TAXA_MUTACAO.getValor());
         txAceitacao = Integer.parseInt(DefaultsEnum.MOCHILA_TAXA_ACEIT.getValor());
         vlIdeal = Integer.parseInt(DefaultsEnum.MOCHILA_VALOR_IDEAL.getValor());
-        pesoMaxMochila = Integer.parseInt(DefaultsEnum.MOCHILA_PESO_MAX.getValor());
+        itensMochila = Integer.parseInt(DefaultsEnum.ITENS_MOCHILA.getValor());
+        pesoMaxMochila = new BigDecimal(DefaultsEnum.MOCHILA_PESO_MAX.getValor());
         pesoMaxObj = new BigDecimal(DefaultsEnum.ITEM_PESO_MAX.getValor());
         pesoMinObj = new BigDecimal(DefaultsEnum.ITEM_PESO_MIN.getValor());
-        vlMaxObj = Integer.parseInt(DefaultsEnum.ITEM_VALOR_MAX.getValor());
-        vlMinObj = Integer.parseInt(DefaultsEnum.ITEM_VALOR_MIN.getValor());
+        vlMaxObj = new BigDecimal(DefaultsEnum.ITEM_VALOR_MAX.getValor());
+        vlMinObj = new BigDecimal(DefaultsEnum.ITEM_VALOR_MIN.getValor());
     }
 
     public Integer getPopulacao() {
@@ -79,11 +81,19 @@ public class ParametrosForm {
         this.vlIdeal = vlIdeal;
     }
 
-    public Integer getPesoMaxMochila() {
+    public Integer getItensMochila() {
+        return itensMochila;
+    }
+
+    public void setItensMochila(Integer itensMochila) {
+        this.itensMochila = itensMochila;
+    }
+
+    public BigDecimal getPesoMaxMochila() {
         return pesoMaxMochila;
     }
 
-    public void setPesoMaxMochila(Integer pesoMaxMochila) {
+    public void setPesoMaxMochila(BigDecimal pesoMaxMochila) {
         this.pesoMaxMochila = pesoMaxMochila;
     }
 
@@ -103,19 +113,19 @@ public class ParametrosForm {
         this.pesoMinObj = pesoMinObj;
     }
 
-    public Integer getVlMaxObj() {
+    public BigDecimal getVlMaxObj() {
         return vlMaxObj;
     }
 
-    public void setVlMaxObj(Integer vlMaxObj) {
+    public void setVlMaxObj(BigDecimal vlMaxObj) {
         this.vlMaxObj = vlMaxObj;
     }
 
-    public Integer getVlMinObj() {
+    public BigDecimal getVlMinObj() {
         return vlMinObj;
     }
 
-    public void setVlMinObj(Integer vlMinObj) {
+    public void setVlMinObj(BigDecimal vlMinObj) {
         this.vlMinObj = vlMinObj;
     }
 }
