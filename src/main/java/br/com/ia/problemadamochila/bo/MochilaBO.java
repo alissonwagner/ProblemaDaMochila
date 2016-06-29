@@ -3,7 +3,7 @@ package br.com.ia.problemadamochila.bo;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class MochilaBO {
+public class MochilaBO implements Comparable<MochilaBO>{
     private List<ItemBO> itens;
     private BigDecimal valor;
     private BigDecimal peso;
@@ -42,5 +42,20 @@ public class MochilaBO {
 
     public void setFitness(BigDecimal fitness) {
         this.fitness = fitness;
+    }
+    
+    @Override
+    public int compareTo(MochilaBO mochila){
+        int retorno = mochila.getFitness().compareTo(this.getFitness());
+        
+        if(retorno == 0){
+            retorno = mochila.getValor().compareTo(this.getValor());
+        }
+        
+        if(retorno == 0){
+            retorno = 1;
+        }
+        
+        return retorno;
     }
 }
