@@ -1,9 +1,7 @@
 package br.com.ia.problemadamochila.controller;
 
 import br.com.ia.problemadamochila.ParametrosForm;
-import br.com.ia.problemadamochila.bo.MochilaBO;
-import br.com.ia.problemadamochila.service.MochilaService;
-import java.util.List;
+import br.com.ia.problemadamochila.service.AlgoritmoGeneticoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     @Autowired
-    private MochilaService mochilaService;
+    private AlgoritmoGeneticoService algoritmoGeneticoService;
     
     @RequestMapping(path = "/", method = RequestMethod.GET)
     private String getIndex(Model model) {
@@ -25,7 +23,7 @@ public class HomeController {
     
     @RequestMapping(path = "/busca", method = RequestMethod.POST)
     public String postParametros(@ModelAttribute("form") ParametrosForm form, Model model){
-        List<MochilaBO> geraPopulacaoInicial = mochilaService.geraPopulacaoInicial(form);
+        algoritmoGeneticoService.execute(form);
         return "home";
     }
 }
