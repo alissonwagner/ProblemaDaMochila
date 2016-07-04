@@ -23,7 +23,7 @@ public class HomeController {
     
     @RequestMapping(path = "/busca", method = RequestMethod.POST)
     public String postParametros(@ModelAttribute("form") ParametrosForm form, Model model){
-        algoritmoGeneticoService.execute(form);
+        model.addAttribute("resultado", algoritmoGeneticoService.execute(form));
         return "home";
     }
 }

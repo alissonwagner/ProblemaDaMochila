@@ -1,9 +1,10 @@
 package br.com.ia.problemadamochila.service;
 
 import br.com.ia.problemadamochila.ParametrosForm;
-import br.com.ia.problemadamochila.bo.MochilaBO;
+import br.com.ia.problemadamochila.to.ResultadoTO;
+import java.util.Set;
 
 public interface AlgoritmoGeneticoService {
     
-    MochilaBO execute(ParametrosForm form);
+    Set<ResultadoTO> execute(ParametrosForm form);
 }

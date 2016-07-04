@@ -5,6 +5,7 @@ import br.com.ia.problemadamochila.bo.ItemBO;
 import br.com.ia.problemadamochila.bo.MochilaBO;
 import br.com.ia.problemadamochila.service.AlgoritmoGeneticoService;
 import br.com.ia.problemadamochila.service.MochilaService;
+import br.com.ia.problemadamochila.to.ResultadoTO;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -22,8 +23,9 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
     private MochilaService mochilaService;
 
     @Override
-    public MochilaBO execute(ParametrosForm form) {
+    public Set<ResultadoTO> execute(ParametrosForm form) {
         MochilaBO mochilaAceitavel = null;
+        Set<ResultadoTO> resultado = new TreeSet<>();
         Integer iteracoes = 0;
         BigDecimal txAceitacao = new BigDecimal(form.getTxAceitacao()).divide(new BigDecimal(100));
         BigDecimal aceite = new BigDecimal(form.getVlIdeal()).multiply(txAceitacao);
@@ -37,9 +39,17 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
             populacao = mochilaService.calculaFitnessDaPopulacao(populacao, form.getPesoMaxMochila());
             mochilaAceitavel = getMochilaPorAceite(populacao, aceite, form.getPesoMaxMochila());
             iteracoes++;
+            
+            if(mochilaAceitavel == null){
+                MochilaBO melhorMochila = getMelhorMochila(populacao);
+                resultado.add(new ResultadoTO(iteracoes, melhorMochila.getValor(), melhorMochila.getPeso(), melhorMochila.getFitness()));
+            } else {
+                resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness()));
+            }
+            
         }
 
-        return mochilaAceitavel;
+        return resultado;
     }
     
     private List<MochilaBO> getListaEvolucao(List<MochilaBO> populacao, ParametrosForm form){
@@ -166,5 +176,10 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
         }
         
         return retorno;
+    }
+    
+    private MochilaBO getMelhorMochila(List<MochilaBO> lista){
+        Set<MochilaBO> listaOrdenada = new TreeSet<>(lista);
+        return listaOrdenada.iterator().next();
     }
 }
