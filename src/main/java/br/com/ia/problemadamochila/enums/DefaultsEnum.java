@@ -10,7 +10,7 @@ public enum DefaultsEnum {
 	ITEM_VALOR_MIN("1"),
 	ITEM_VALOR_MAX("100"),
         ITENS_MOCHILA("15"),
-        MOCHILA_PESO_MAX("15"),
+        MOCHILA_PESO_MAX("20"),
         MOCHILA_VALOR_IDEAL("1500"),
         MOCHILA_TAXA_ACEIT("90");
 	
