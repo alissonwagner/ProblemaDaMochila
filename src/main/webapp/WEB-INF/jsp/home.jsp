@@ -12,8 +12,8 @@
         <title>Problema da mochila</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="/ProblemaDaMochila/resources/css/bootstrap.css" rel="stylesheet">
-        <link href="/ProblemaDaMochila/resources/css/dashboard.css" rel="stylesheet">
+        <link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
+        <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
 
         <style type="text/css">
             .form-group{
@@ -118,7 +118,7 @@
 
                     <c:if test="${empty resultado}">
                         <div class="row placeholders">
-                            <img src="/ProblemaDaMochila/resources/images/mochila.png" class="mochila"/>
+                            <img src="<c:url value="/resources/images/mochila.png"/>" class="mochila"/>
                         </div>
                     </c:if>
 
@@ -153,7 +153,7 @@
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
-        <script src="/ProblemaDaMochila/resources/js/jquery.min.js"></script>
-        <script src="/ProblemaDaMochila/resources/js/bootstrap.js"></script>
+        <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+        <script src="<c:url value="/resources/js/bootstrap.js"/>"></script>
     </body>
 </html>
