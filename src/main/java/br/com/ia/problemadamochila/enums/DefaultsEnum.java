@@ -6,7 +6,7 @@ public enum DefaultsEnum {
         ITERACOES("5000"),
         INTERVALO_GERACAO("150"),
 	ITEM_PESO_MAX("2"),
-	ITEM_PESO_MIN("0.1"),
+	ITEM_PESO_MIN("1"),
 	ITEM_VALOR_MIN("1"),
 	ITEM_VALOR_MAX("100"),
         ITENS_MOCHILA("15"),
