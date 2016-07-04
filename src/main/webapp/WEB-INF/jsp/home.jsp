@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Algoritmos genéticos</a>
+                    <a class="navbar-brand" href="<c:url value="/"/>">Algoritmos genéticos</a>
                 </div>
             </div>
         </nav>
