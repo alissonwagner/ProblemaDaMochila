@@ -26,7 +26,7 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
     public Set<ResultadoTO> execute(ParametrosForm form) {
         MochilaBO mochilaAceitavel = null;
         Set<ResultadoTO> resultado = new TreeSet<>();
-        Integer iteracoes = 0;
+        Integer iteracoes = 1;
         BigDecimal txAceitacao = new BigDecimal(form.getTxAceitacao()).divide(new BigDecimal(100));
         BigDecimal aceite = new BigDecimal(form.getVlIdeal()).multiply(txAceitacao);
         
@@ -34,11 +34,14 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
 
         mochilaAceitavel = getMochilaPorAceite(populacao, aceite, form.getPesoMaxMochila());
         
-        while (mochilaAceitavel == null && iteracoes < form.getIteracoes()) {            
+        if(mochilaAceitavel != null){
+            resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness()));
+        }
+        
+        while (mochilaAceitavel == null && iteracoes <= form.getIteracoes()) {            
             populacao = getListaEvolucao(populacao, form);
             populacao = mochilaService.calculaFitnessDaPopulacao(populacao, form.getPesoMaxMochila());
             mochilaAceitavel = getMochilaPorAceite(populacao, aceite, form.getPesoMaxMochila());
-            iteracoes++;
             
             if(mochilaAceitavel == null){
                 MochilaBO melhorMochila = getMelhorMochila(populacao);
@@ -47,6 +50,7 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
                 resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness()));
             }
             
+            iteracoes++;
         }
 
         return resultado;
