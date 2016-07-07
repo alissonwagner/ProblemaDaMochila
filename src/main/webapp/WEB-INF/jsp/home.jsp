@@ -25,6 +25,10 @@
                 width: 400px;
                 height: 400px;
             }
+            
+            .mochilaIdeal{
+                cursor: pointer;
+            }
         </style>
 
     </head>
@@ -137,16 +141,16 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${resultado}" var="result" varStatus="status">
-                                        <tr>
+                                        <tr class="${status.index eq 0 ? 'mochilaIdeal' : ''}">
                                             <td>${result.iteracao}</td>
                                             <td>${result.valor}</td>
                                             <td>${result.peso}</td>
                                             <td>${result.fitness}</td>
                                         </tr>
-                                        <c:if test="${status.index eq 0}">
+                                        <c:if test="${status.index eq 0 and not empty result.itens}">
                                             <c:forEach items="${result.itens}" var="item" varStatus="status">
-                                                <tr>
-                                                    <td>#</td>
+                                                <tr class="itemMochila">
+                                                    <td><span class="glyphicon glyphicon-star"></span></td>
                                                     <td>Item:  <b>${status.index + 1}</b></td>
                                                     <td>Valor:  <b>${item.valor}</b></td>
                                                     <td>Peso:  <b>${item.peso}</b></td>
@@ -161,10 +165,25 @@
                 </div>
             </div>
         </div>
-
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
         <script src="<c:url value="/resources/js/bootstrap.js"/>"></script>
+
+        <script type="text/javascript">
+            $(".mochilaIdeal").on('click', function (){
+                var itens = $(".itemMochila");
+                
+                itens.each(function (i, it){
+                   var hasHide = $(it).hasClass('hide');
+                   
+                   if(hasHide){
+                       $(it).removeClass('hide');
+                   } else {
+                       $(it).addClass('hide');
+                   }
+                });
+            });
+        </script>
     </body>
 </html>
