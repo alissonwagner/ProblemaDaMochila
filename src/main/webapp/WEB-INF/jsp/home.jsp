@@ -9,6 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" href="<c:url value="/resources/images/icone.png"/>">
         <title>Problema da mochila</title>
 
         <!-- Bootstrap core CSS -->
@@ -135,13 +136,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${resultado}" var="result">
+                                    <c:forEach items="${resultado}" var="result" varStatus="status">
                                         <tr>
                                             <td>${result.iteracao}</td>
                                             <td>${result.valor}</td>
                                             <td>${result.peso}</td>
                                             <td>${result.fitness}</td>
                                         </tr>
+                                        <c:if test="${status.index eq 0}">
+                                            <c:forEach items="${result.itens}" var="item" varStatus="status">
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>Item:  <b>${status.index + 1}</b></td>
+                                                    <td>Valor:  <b>${item.valor}</b></td>
+                                                    <td>Peso:  <b>${item.peso}</b></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
                                     </c:forEach>
                                 </tbody>
                             </table>

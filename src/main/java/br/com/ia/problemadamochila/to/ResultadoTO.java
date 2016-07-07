@@ -1,18 +1,23 @@
 package br.com.ia.problemadamochila.to;
 
+import br.com.ia.problemadamochila.bo.ItemBO;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResultadoTO implements Comparable<ResultadoTO>{
     private Integer iteracao;
     private BigDecimal valor;
     private BigDecimal peso;
     private BigDecimal fitness;
+    private List<ItemBO> itens = new ArrayList<>();
 
-    public ResultadoTO(Integer iteracao, BigDecimal valor, BigDecimal peso, BigDecimal fitness) {
+    public ResultadoTO(Integer iteracao, BigDecimal valor, BigDecimal peso, BigDecimal fitness, List<ItemBO> itens) {
         this.iteracao = iteracao;
         this.valor = valor;
         this.peso = peso;
         this.fitness = fitness;
+        this.itens = itens;
     }
 
     public Integer getIteracao() {
@@ -45,6 +50,14 @@ public class ResultadoTO implements Comparable<ResultadoTO>{
 
     public void setFitness(BigDecimal fitness) {
         this.fitness = fitness;
+    }
+
+    public List<ItemBO> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemBO> itens) {
+        this.itens = itens;
     }
 
     @Override

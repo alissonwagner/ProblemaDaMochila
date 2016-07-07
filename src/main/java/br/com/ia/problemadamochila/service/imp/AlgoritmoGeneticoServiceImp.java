@@ -35,7 +35,7 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
         mochilaAceitavel = getMochilaPorAceite(populacao, aceite, form.getPesoMaxMochila());
         
         if(mochilaAceitavel != null){
-            resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness()));
+            resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness(), mochilaAceitavel.getItens()));
         }
         
         while (mochilaAceitavel == null && iteracoes <= form.getIteracoes()) {            
@@ -45,9 +45,9 @@ public class AlgoritmoGeneticoServiceImp implements AlgoritmoGeneticoService {
             
             if(mochilaAceitavel == null){
                 MochilaBO melhorMochila = getMelhorMochila(populacao);
-                resultado.add(new ResultadoTO(iteracoes, melhorMochila.getValor(), melhorMochila.getPeso(), melhorMochila.getFitness()));
+                resultado.add(new ResultadoTO(iteracoes, melhorMochila.getValor(), melhorMochila.getPeso(), melhorMochila.getFitness(), null));
             } else {
-                resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness()));
+                resultado.add(new ResultadoTO(iteracoes, mochilaAceitavel.getValor(), mochilaAceitavel.getPeso(), mochilaAceitavel.getFitness(), mochilaAceitavel.getItens()));
             }
             
             iteracoes++;
